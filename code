@@ -1,0 +1,42 @@
+using System.Xml;
+
+namespace stuff
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string bestSalesman = "";
+            int bestSales = 0;
+            while (true)
+            {
+                Console.WriteLine("Enter salesman name: ");
+                string salesmanName = Console.ReadLine();
+                if (salesmanName == "END" || salesmanName == "end")
+                {
+                    break;
+                }
+                Console.WriteLine("Enter total sales price: ");
+                int sales = int.Parse(Console.ReadLine());
+                if (sales > bestSales)
+                {
+                    bestSales = sales;
+                    bestSalesman = salesmanName;
+                }
+                if (sales >= 1000)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine($"{bestSalesman} is the best salesman!");
+            if (bestSales >= 500)
+            {
+                Console.WriteLine($"{bestSalesman} has a total of {bestSales} sales price and an excellent degree!");
+            }
+            else
+            {
+                Console.WriteLine($"{bestSalesman} has a total of {bestSales} sales price.");
+            }
+        }
+    }
+}
